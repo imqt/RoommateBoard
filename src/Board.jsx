@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Post from "./Post";
+import { uuidv4 } from "./util"
 
 const placeHolderPosts = [
   {
@@ -49,22 +50,8 @@ export default function Board(props) {
     };
   };
 
-  function uuidv4() {
-    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
-      /[xy]/g,
-      function (c) {
-        var r = (Math.random() * 16) | 0,
-          v = c == "x" ? r : (r & 0x3) | 0x8;
-        return v.toString(16);
-      }
-    );
-  }
-
   useEffect(() => {
-    // document.getElementById('scrollableDiv').addEventListener('scroll', toggleFilterCollapse, {passive: true});
-    // return () => {
-    //   document.getElementById('scrollableDiv').removeEventListener('scroll', toggleFilterCollapse)
-    // }
+
   }, []);
 
   return (
