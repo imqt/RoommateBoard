@@ -1,17 +1,56 @@
-import './App.css';
+import { Component, useState } from "react";
+import "./App.css";
+import firebase from "./firebase";
+import "firebase/database";
+import Board from "./Board";
+import AddButton from "./components/AddButton/AddButton";
+import PostCreator from './components/PostCreator/PostCreator';
 import Logo from './Logo.jsx';
 
-import AddButton from './components/AddButton/AddButton'
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      posts: [],
+      modalShow: false,
+    };
+  }
 
-function App() {
-  return (
-    <div className="App">
-      hello world
-      <Logo/>
-      <br/>
-      <AddButton></AddButton>
-    </div>
-  );
+  componentDidMount() {
+    const cardRoot = firebase.database().ref("posts");
+
+    cardRoot.once("value", (snapshot) => {
+      let posts = snapshot.val();
+      let newState = [];
+      for (let post in posts) {
+        newState.push({
+          id: post,
+        });
+      }
+      this.setState({
+        posts: newState,
+      });
+    });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Logo/>
+        <Board />
+
+        <AddButton onClick={() => this.setState({ modalShow: true })}></AddButton>
+        <PostCreator
+          show={this.state.modalShow}
+          onHide={() => this.setState({ modalShow: false })}
+          backdrop="static"
+          keyboard={false}
+        />
+        {console.log(this.state.posts)}
+        {/* {this.state.dataAvail && <Grid grid={this.state.card} />} */}
+      </div>
+    );
+  }
 }
 
 export default App;
