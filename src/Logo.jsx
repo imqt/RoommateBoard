@@ -20,7 +20,7 @@ export default function Logo(props) {
     //   }, []);
 
     return (
-        <div className="Logo-container">
+        <div className="LogoContainer">
             {/* <form onSubmit={clickHandler}>
                 <input type="text" onChange={changeHandler}/>
                 <input type="button" value="Post" onClick={clickHandler} />
