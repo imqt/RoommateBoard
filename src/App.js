@@ -1,12 +1,25 @@
 import './App.css';
-import AddButton from './components/AddButton/AddButton'
+import AddButton from './components/AddButton/AddButton';
+import { useState } from 'react';
+import PostCreator from './components/PostCreator/PostCreator'
 
 function App() {
+
+  const [modalShow, setModalShow] = useState(false);
+
+
   return (
     <div className="App">
-      hello world
-      <br/>
-      <AddButton></AddButton>
+
+      <AddButton onClick={() => setModalShow(true)}></AddButton>
+     
+      <PostCreator
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        backdrop="static"
+        keyboard={false}
+      />
+
     </div>
   );
 }
