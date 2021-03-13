@@ -15,6 +15,7 @@ class App extends Component {
     };
   }
 
+
   componentDidMount() {
     const cardRoot = firebase.database().ref("posts");
 
@@ -36,13 +37,14 @@ class App extends Component {
     return (
       <div className="App">
         <Board />
+
         <AddButton onClick={() => this.setState({ modalShow: true })}></AddButton>
         <PostCreator
-        show={modalShow}
-        onHide={() => this.setState({ modalShow: false })}
-        backdrop="static"
-        keyboard={false}
-      />
+          show={this.state.modalShow}
+          onHide={() => this.setState({ modalShow: false })}
+          backdrop="static"
+          keyboard={false}
+        />
         {console.log(this.state.posts)}
         {/* {this.state.dataAvail && <Grid grid={this.state.card} />} */}
       </div>

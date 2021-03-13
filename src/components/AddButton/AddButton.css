@@ -1,4 +1,7 @@
 .addButton {
+    position:fixed;
+    top: 20px;
+    right: 20px;
     background-color: transparent;
     border-radius: 100%;
     color: black;
