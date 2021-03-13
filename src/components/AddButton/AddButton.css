@@ -1,0 +1,17 @@
+.addButton {
+
+    background-color: transparent;
+    border-radius: 100%;
+    color: black;
+    font-weight: 900;
+    font-size: 42px;
+    user-select: none !important;
+    /* border:1px solid black; */
+}
+
+.addButton:hover {
+    transform: translate(0, 4px) scale(1.2);
+    color: #FA9A85;
+    text-decoration: none;
+    user-select: none;
+}
