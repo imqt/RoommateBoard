@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import LogoBR from '/../LogoBR.png'
+import LogoBR from './components/img/LogoBR.png'
 
 export default function Logo(props) {    
     const [mouseCoordinate, setMouseCoordinate] = useState("");

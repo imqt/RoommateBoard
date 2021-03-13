@@ -5,7 +5,7 @@ import "firebase/database";
 import Board from "./Board";
 import AddButton from "./components/AddButton/AddButton";
 import PostCreator from './components/PostCreator/PostCreator';
-import Logo from './Logo.jsx';
+import Logo from './Logo';
 
 class App extends Component {
   constructor() {
