@@ -1,11 +1,12 @@
 import './App.css';
-import Button from 'react-bootstrap/Button';
+import AddButton from './components/AddButton/AddButton'
 
 function App() {
   return (
     <div className="App">
       hello world
-      <Button variant="primary">Primary</Button>{' '}
+      <br/>
+      <AddButton></AddButton>
     </div>
   );
 }
