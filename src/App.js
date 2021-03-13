@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import './App.css';
-import firebase from './firebase';
+import React, { Component } from "react";
+import "./App.css";
+import firebase from "./firebase";
 import "firebase/database";
-import  AddButton  from './components/AddButton/AddButton'
+import Board from "./Board";
+import AddButton from "./components/AddButton/AddButton";
 
-
-class App extends Component{
+class App extends Component {
   constructor() {
     super();
     this.state = {
@@ -14,31 +14,32 @@ class App extends Component{
   }
 
   componentDidMount() {
-    const cardRoot = firebase.database().ref('posts');
+    const cardRoot = firebase.database().ref("posts");
 
-    cardRoot.once('value', (snapshot) => {
-        let posts = snapshot.val();
-        let newState = [];
-        for (let post in posts) {
-            newState.push({
-                id: post,
-            });
-        }
-        this.setState({
-          posts: newState,
+    cardRoot.once("value", (snapshot) => {
+      let posts = snapshot.val();
+      let newState = [];
+      for (let post in posts) {
+        newState.push({
+          id: post,
         });
+      }
+      this.setState({
+        posts: newState,
+      });
     });
-}
+  }
 
   render() {
-      return (
-          <div className="App">
-            <AddButton></AddButton>
+    return (
+      <div className="App">
+        <Board />
+        <AddButton></AddButton>
 
-            {console.log(this.state.posts)}
-              {/* {this.state.dataAvail && <Grid grid={this.state.card} />} */}
-          </div>
-      );
+        {console.log(this.state.posts)}
+        {/* {this.state.dataAvail && <Grid grid={this.state.card} />} */}
+      </div>
+    );
   }
 }
 

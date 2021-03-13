@@ -1,3 +1,16 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
+}
+
+.BoardContainer {
+  height: 100vh;
+  width: 100vw;
+  background-color: lightgray;
+}
+
+.PostContainer {
+  height: 200px;
+  width: 200px;
+  background-color: lightblue;
+  position: absolute;
 }
