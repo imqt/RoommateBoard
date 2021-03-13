@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import firebase from './firebase';
 import "firebase/database";
+import  AddButton  from './components/AddButton/AddButton'
 
 
-
-console.log(firebase);
 class App extends Component{
   constructor() {
     super();
