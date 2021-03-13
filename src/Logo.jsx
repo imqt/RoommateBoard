@@ -20,7 +20,7 @@ export default function Logo(props) {
     //   }, []);
 
     return (
-        <div className="LogoContainer">
+        <div className="logoContainer">
             {/* <form onSubmit={clickHandler}>
                 <input type="text" onChange={changeHandler}/>
                 <input type="button" value="Post" onClick={clickHandler} />
@@ -28,7 +28,7 @@ export default function Logo(props) {
             <ul>
                 {contents.map(c => <li>{c}</li>)}
             </ul> */}
-            Logo
+             <Button variant="link">Logo</Button>
         </div>
     );
 }
