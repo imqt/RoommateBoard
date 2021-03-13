@@ -16,3 +16,7 @@ code {
   left: 0;
   position: absolute;
 }
+#logoBR {
+  width: 150px;
+  height: 75px;
+}

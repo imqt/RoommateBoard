@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import LogoBR from './LogoBR.png'
 
 export default function Logo(props) {    
     const [mouseCoordinate, setMouseCoordinate] = useState("");
@@ -28,7 +29,10 @@ export default function Logo(props) {
             <ul>
                 {contents.map(c => <li>{c}</li>)}
             </ul> */}
-             <Button variant="link">Logo</Button>
+            
+            <div id="logoBR">
+            <img src={LogoBR} class="img-thumbnail" alt="LogoBR"></img>
+            </div>
         </div>
     );
 }
