@@ -8,11 +8,25 @@ export default function Post(props) {
   const postStyle = {
     left: postData.coordinate.x,
     top: postData.coordinate.y,
+    // backgroundColor: postData.color,
   };
 
+  const getClassName = () => {
+    if (postData.background === "paper") {
+      return "PostContainer";
+    } else if (postData.background === "sticky") {
+      return "PostContainer";
+    } else if (postData.background === "scrap") {
+      return "PostContainer";
+    } 
+  };
+
+  const getColorClassName = () => {
+    return postData.color + "Post";
+  };
 
   return (
-    <div id={postData.id} className="PostContainer" style={postStyle}>
+    <div id={postData.id} className={`PostContainer ${getColorClassName()}`} style={postStyle}>
       <div className="InnerPostContainer">
         <h3>
           {postData.name}

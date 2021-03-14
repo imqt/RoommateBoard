@@ -1,10 +1,11 @@
-import { Modal, Button} from 'react-bootstrap';
+import { Modal, Button, ButtonGroup } from 'react-bootstrap';
 import ReactQuill from 'react-quill'; // ES6
 import { useState } from 'react';
 import ProfileImg from '../../components/img/profileImage.jpeg';
 
 
 function PostCreator(props) {
+    const { onSubmitClick } = props;
     const initialState = {
         name: "",
         gender: "female",
@@ -15,6 +16,13 @@ function PostCreator(props) {
 
     const [{ name, gender, pets, price, location }, setState] = useState(initialState);
     const [value, setValue] = useState('');
+    const [colorSelected, setColorSelected] = useState('white');
+    const [backgroundSelected, setBackgroundSelected] = useState('paper');
+
+    const getHashTagList = () => {
+      const tags = document.getElementById("hashTags").value.split("#");
+      return [...tags.map(tag => tag.trim().toLowerCase()), ""];
+    };
 
 
     const clearState = () => {
@@ -28,8 +36,6 @@ function PostCreator(props) {
       };
     
 
-    const { onSubmitClick } = props;
-
     return (
         <Modal
         {...props}
@@ -39,14 +45,9 @@ function PostCreator(props) {
         >
         <Modal.Header closeButton={true}>
             <Modal.Title id="contained-modal-title-vcenter">
-                Create a Post
 
-        {/* <div class="image-upload">
-            <label for="file-input">
-              <img id="proPic" src={ProfileImg} class="card-img-top rounded-circle" alt="proPic" />Create a profile
-            </label>
-            <input id="file-input" type="file" onChange={previewFile}></input>
-          </div> */}
+
+            Create a Bulletin
             </Modal.Title>
         </Modal.Header>
         
@@ -101,9 +102,33 @@ function PostCreator(props) {
                 </label>
             </form>
             <h5>What else should we know about :)?</h5>
+            <p>Pick a Color</p>
+
+
+            <ButtonGroup aria-label="Basic example">
+                <Button variant="light" onClick={() => setColorSelected("white")}>white</Button>
+                <Button variant="secondary" onClick={() => setColorSelected("grey")}>grey</Button>
+                <Button variant="primary" onClick={() => setColorSelected("blue")}>blue</Button>
+                <Button variant="success" onClick={() => setColorSelected("green")}>green</Button>
+                <Button variant="warning" onClick={() => setColorSelected("yellow")}>yellow</Button>
+                <Button variant="danger" onClick={() => setColorSelected("red")}>red</Button>
+            </ButtonGroup>
+
+            <p style={{marginTop: "20px"}}>Pick a Background</p>
+            <ButtonGroup aria-label="Basic example">
+                <Button variant="secondary" onClick={() => setBackgroundSelected("paper")}>plain ol' paper</Button>
+                <Button variant="light" onClick={() => setBackgroundSelected("sticky")}>sticky note</Button>
+                <Button variant="primary" onClick={() => setBackgroundSelected("scrap")}>scrap paper</Button>
+            </ButtonGroup>
+
+            <p style={{marginTop: "20px"}}># Tag</p>
+            <textarea id="hashTags" rows="1" cols="106"></textarea>
+
+            <p style={{marginTop: "20px"}}>Bulletin Content</p>
             <ReactQuill 
                 name="value"
                 theme="snow"
+                placeholder="Tell us more about yourself"
                 modules = {{
                     toolbar: [
                         [{ 'size': ['small', false, 'large', 'huge'] }],
@@ -123,7 +148,8 @@ function PostCreator(props) {
         <Modal.Footer>
             <Button onClick={() => {
                 clearState(); 
-                onSubmitClick(name, gender, pets, price, location, value)}}>Post</Button>
+
+                onSubmitClick(name, gender, pets, price, location, value, colorSelected, backgroundSelected, getHashTagList())}}>Post</Button>
             <Button onClick={props.onHide}>Close</Button>
         </Modal.Footer>
 
