@@ -10,6 +10,7 @@ export default function Post(props) {
     top: postData.coordinate.y,
   };
 
+
   return (
     <div id={postData.id} className="PostContainer" style={postStyle}>
       <h3>
@@ -18,7 +19,9 @@ export default function Post(props) {
       </h3>
       Pets: {postData.pets == 0? "No": "Yes"}
       <p>{postData.content}</p>
-      {parser(postData.content || "")}
+      <div className="InnerPostContainer">
+        {parser(postData.content || "")}
+      </div>
     </div>
   );
 }
