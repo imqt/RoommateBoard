@@ -2,7 +2,7 @@ import { Component, useState } from "react";
 import "./App.css";
 import Board from "./Board";
 import AddButton from "./components/AddButton/AddButton";
-import Logo from './Logo';
+import Logo from "./Logo";
 
 class App extends Component {
   constructor() {
@@ -15,9 +15,7 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-
-  }
+  componentDidMount() {}
 
   showPostModal() {
     this.setState({ selectPostLocationMode: false, modalShow: true });
@@ -36,7 +34,11 @@ class App extends Component {
           showModal={this.showPostModal.bind(this)}
           hideModal={this.hideModal.bind(this)}
         />
+
         <Logo/>
+        <div className="location"></div>
+        <p className="locationText">📌 Vancouver</p>
+
         <AddButton
           onClick={() => this.setState({ selectPostLocationMode: true })}
         ></AddButton>

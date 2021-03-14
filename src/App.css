@@ -1,48 +1,84 @@
 .App {
+  user-select: none !important;
+}
+body {
+  margin:0px;
+  padding:0px;
 }
 
 .BoardContainer {
   height: 100vh;
   width: 100vw;
-  background-color: lightgray;
+  background-color: #FFF1E6;
 }
 
 .PostContainer {
-  height: 300px;
+  height: 350px;
   width: 250px;
-  background-color: #a9d6e5;
+  /* background-color: #a9d6e5; */
   position: absolute;
   background: linear-gradient(45deg, transparent 30px, #a9d6e5 30px);
-  filter: drop-shadow(5px -5px 5px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3));
   padding: 10px;
   padding-bottom: 50px;
   overflow: hidden;
   border-radius: 2px;
+  transition-duration: 0.2s;
+  z-index: 1;
 }
-
 
 .InnerPostContainer {
   height: 100%;
   width: 100%;
   background-color: transparent;
-  position: relative;
-  /* transform-origin: 0% 0%; */
   overflow: hidden;
   padding: 5px;
   overflow-wrap: break-word;
 }
 
-.PostContainer:hover{
-  transform: scale(1.12);
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
-  z-index: 1;
+.PostContainer:hover {
+  filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.4));
+  z-index: 2;
+  transform:scale(1.12)
 }
 
-.PostContainer:hover .InnerPostContainer{
+.PostContainer:hover .InnerPostContainer {
+  overflow: auto;
+
+}
+
+.PostContainerFull {
+  transition-duration: 0.2s;
+  z-index: 1;
+  overflow: hidden;
+  height: 80vh;
+  width: 69vw;
+  position: absolute !important;
+  top:50% !important;
+  left:50% !important;
+  transform: translate(-50%,-50%);
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 40px;
+  padding-right:2px;
+  filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.4));
+  z-index: 69;
+}
+.PostContainerFull .InnerPostContainer {
+  overflow: hidden;
+}
+.PostContainerFull:hover .InnerPostContainer {
   overflow: auto;
 }
 
-.InnerPostContainer img, .InnerPostContainer p {
+.fullInvisibleWrapper {
+  height: 100vh;
+  width: 100vw;
+  display: block;
+  z-index: 99;
+}
+
+.InnerPostContainer img:not(.InnerPostContainer h3 img) {
   max-width: 100%;
 }
 
@@ -52,12 +88,16 @@
   width: 0px;
   height: 0px;
   border-left: 45px solid transparent;
-  border-top: 45px solid #89c2d9;
+  /* border-top: 45px solid #89c2d9; */
   bottom: 0px;
   left: 0px;
   position: absolute;
   filter: drop-shadow(2px -1px 2px rgba(0, 0, 0, 0.2));
   margin-right: 10%;
+}
+
+.ql-editor {
+  min-height: 150px;
 }
 
 .GhostPost {
@@ -68,6 +108,30 @@
   height: 100vh;
   width: 100vw;
 }
+
+.centered {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  /* bring your own prefixes */
+}
+
+.location {
+  position: fixed;
+  /* left: 82px; */
+  top: 80px;
+  border: 0;
+  width: 100vw;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.locationText {
+  position: fixed;
+  left: 228px;
+  top: 90px;
+  /* left: 380px;
+  top: 40px; */
+}
+
 .PostContainer:nth-of-type(1) {
   margin-right: 9%;
 }
@@ -79,6 +143,111 @@
   opacity: 0.95;
   position: absolute;
   filter: drop-shadow(5px -5px 5px rgba(0, 0, 0, 0.2));
+}
+
+
+.genderLogo {
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
+}
+
+.animate {
+  animation:mymove 4s infinite !important;
+}
+.animate:hover {animation: mymove 0.5s infinite !important;}
+@keyframes mymove {
+    0%   {background: #ddd3ee; transform: rotate(-45deg);}
+    25%  {background: #ffb3ba; transform: rotate(45deg);}
+    50% {background: 	#ffffba; transform: rotate(135deg);}
+    75%  {background: #bae1ff; transform: rotate(225deg);}
+    100%  {background: #ddd3ee; transform: rotate(315deg);}
+}
+
+
+
+/* =============== Scrollbar =============== */
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+  height:4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ccc; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:#888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #777; 
+}
+/* =============== ========= =============== */
+
+
+.whitePostFull {
+  background:white;
+}
+.whitePost {
+  background: linear-gradient(45deg, transparent 30px, white 30px);
+}
+.whitePost:before {
+  border-top: 45px solid #f2f2f2;
+}
+
+.greyPostFull {
+  background: #cccccc;
+}
+.greyPost {
+  background: linear-gradient(45deg, transparent 30px, #cccccc 30px);
+}
+.greyPost:before {
+  border-top: 45px solid #b2b2b2;
+}
+
+.bluePostFull {
+  background:#bae1ff;
+}
+.bluePost {
+  background: linear-gradient(45deg, transparent 30px, #bae1ff 30px);
+}
+.bluePost:before {
+  border-top: 45px solid #c7e7ff;
+}
+
+.greenPostFull {
+  background: #ddf6dd;
+}
+.greenPost {
+  background: linear-gradient(45deg, transparent 30px, #ddf6dd 30px);
+}
+.greenPost:before {
+  border-top: 45px solid #c9f1c9;
+}
+
+.yellowPostFull {
+  background: #fff5ba;
+}
+.yellowPost {
+  background: linear-gradient(45deg, transparent 30px, #fff5ba 30px);
+}
+.yellowPost:before {
+  border-top: 45px solid #fff8ce;
+}
+
+.redPostFull {
+  background: #fcd4dd;
+}
+.redPost {
+  background: linear-gradient(45deg, transparent 30px, #fcd4dd 30px);
+}
+.redPost:before {
+  border-top: 45px solid #f1c9d2;
 }
 
 .CardBoard {
@@ -121,6 +290,7 @@
 }
 .CardBoardWhite {
   background-image: url(./components/img/texture/white-cardboard-texture-hi-res-thumb30.png);
+<<<<<<< HEAD
 }
 .genderLogo {
   height: 20px;
@@ -150,3 +320,6 @@
   background: #777; 
 }
 /* =============== ========= =============== */
+=======
+}
+>>>>>>> c431f01ffcc814ef478958d73f7818354468f345

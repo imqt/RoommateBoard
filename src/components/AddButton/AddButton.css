@@ -1,7 +1,7 @@
 .addButton {
     position:fixed;
-    top: 20px;
-    right: 20px;
+    top: 14px;
+    right: 200px;
     background-color: transparent;
     border-radius: 100%;
     color: black;
@@ -14,7 +14,7 @@
 
 .addButton:hover {
     transform: scale(1.2);
-    color: #FA9A85;
+    color: #ccb7ae;
     text-decoration: none;
     user-select: none;
 }
