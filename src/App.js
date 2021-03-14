@@ -36,8 +36,8 @@ class App extends Component {
         />
 
         <Logo/>
-        
-        <hr style={{ position: "absolute", top: 38, left: 100, height: 5}}/>
+        <div className="location"></div>
+        <p className="locationText">📌 Vancouver</p>
 
         <AddButton
           onClick={() => this.setState({ selectPostLocationMode: true })}
