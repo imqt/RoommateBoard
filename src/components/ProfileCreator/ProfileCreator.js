@@ -12,7 +12,12 @@ function ProfileCreator(props) {
     >
       <Modal.Header closeButton={true}>
         <Modal.Title id="contained-modal-title-vcenter">
-               Create a profile
+          <div class="image-upload">
+            <label for="file-input">
+              <img id="proPic" src={ProfileImg} class="card-img-top rounded-circle" alt="proPic" />Create a profile
+            </label>
+            <input id="file-input" type="file" onChange={previewFile}></input>
+          </div>
         </Modal.Title>
       </Modal.Header>
 
@@ -39,6 +44,25 @@ function ProfileCreator(props) {
           <label for="female">No</label><br />
         </div>
         <div class="singleLineForm">
+          <label for="exampleDataList" class="form-label"><h4>Location: </h4></label>
+          <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="City" />
+          <datalist id="datalistOptions">
+            <option value="Abbotsford" />
+            <option value="Burnaby" />
+            <option value="Coquitlam" />
+            <option value="Delta" />
+            <option value="Lanley" />
+            <option value="New Westminister" />
+            <option value="North Vancouver" />
+            <option value="Richmond" />
+            <option value="Surrey" />
+            <option value="Vancouver" />
+            <option value="Victoria" />
+            <option value="White Rock" />
+            <option value="Pitt Meadows" />
+          </datalist>
+        </div>
+        <div class="singleLineForm">
           <h4>Price:</h4>
           <select class="form-select form-select-sm" aria-label=".form-select-sm example">
             <option selected>Price: </option>
@@ -60,8 +84,22 @@ function ProfileCreator(props) {
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
 
-    </Modal>
+    </Modal >
   );
+  //preview replace image
+  function previewFile() {
+    var fileImg = document.getElementById("proPic");
+    var file = document.querySelector("input[type=file]").files[0];
+    var reader = new FileReader();
+
+    reader.addEventListener("load", function () {
+      fileImg.src = reader.result;
+    }, false);
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
 }
 
 export default ProfileCreator;
