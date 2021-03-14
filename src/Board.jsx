@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Form } from 'react-bootstrap';
 import PostCreator from "./components/PostCreator/PostCreator";
 import Post from "./Post";
@@ -80,7 +80,7 @@ export default function Board(props) {
       onClick={onMouseClick}
     >
       {/* Mouse coordinates: {mouseCoordinate.x} {mouseCoordinate.y} */}
-      <Form.Control as="textarea" placeholder="Filter by Tags" rows={1} onChange={onSearchBarChange} style={{width: "300px", position: "absolute", top: "36px", right: "80px"}} ></Form.Control>
+      <Form.Control as="textarea" placeholder="Filter by Tags" rows={1} onChange={onSearchBarChange} style={{width: "300px", position: "fixed", top: "36px", right: "80px"}} ></Form.Control>
 
       {posts.map((post, i) => (
         post.tags && post.tags.includes(tag) && <Post postData={post} />

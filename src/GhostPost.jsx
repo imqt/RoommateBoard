@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Post from "./Post";
+import React, { useState } from "react";
 
 export default function GhostPost(props) {
   const { isVisible } = props;

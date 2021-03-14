@@ -1,13 +1,11 @@
 import female from "../img/female.png"
 import male from "../img/male.png"
 import nonbinary from "../img/nonbinary.png"
-import React, { useState, useEffect } from "react";
-
 
 const getGenderLogo = (gender) => {
-    if (gender == "male"){
+    if (gender === "male"){
       return male;
-    } else if (gender == "female") {
+    } else if (gender === "female") {
       return female;
     }
     return nonbinary;

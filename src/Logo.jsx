@@ -1,6 +1,3 @@
-import React, { useState, useEffect } from "react";
-import LogoBR from './components/img/LogoBR.png';
-
 const logoStyle = {
     width: "40px",
     height: "40px",
@@ -14,8 +11,6 @@ const logoStyle = {
 };
 
 export default function Logo(props) {    
-    const [mouseCoordinate, setMouseCoordinate] = useState("");
-    const [contents, setContents] = useState([]);
 
     // const clickHandler = () => {
     //     setContents([...contents, text]);
@@ -45,10 +40,8 @@ export default function Logo(props) {
             {/* <div id="logoBR">
             <img src={LogoBR} class="img-thumbnail" alt="LogoBR"></img>
             </div> */}
-            <div style={{ position: "absolute" }}>
-                <div className={"animate"} style={logoStyle}></div>
-            </div>
-            <h3 style={{ position: "absolute", left: 82, top: 38, width: 200, color:"#141414" }}>Room_it!</h3>
+            <div className={"animate"} style={logoStyle}></div>
+            <h3 style={{ position: "fixed", left: 82, top: 38, width: 200, color:"#141414" }}>Room_it!</h3>
         </div>
     );
 }
