@@ -19,10 +19,11 @@
   border-radius: 2px;
 }
 
+
 .InnerPostContainer {
   height: 100%;
   width: 100%;
-  background-color: #a9d6e5;
+  background-color: transparent;
   position: relative;
   transform-origin: 0% 0%;
   overflow: hidden;
