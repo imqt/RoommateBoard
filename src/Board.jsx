@@ -29,9 +29,11 @@ export default function Board(props) {
   // const lastClickedCoordinate = {x: 0, y: 0};
 
   const onMouseClick = (e) => {
-    console.log(e.clientX);
-    console.log(e.clientY);
-    setMouseCoordinate({x: e.clientX, y: e.clientY});
+    if (!isModalOpen) {
+      console.log(e.clientX);
+      console.log(e.clientY);
+      setMouseCoordinate({x: e.clientX, y: e.clientY});
+    }
     if (selectPostLocationMode) {
       showModal();
     }
