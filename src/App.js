@@ -15,6 +15,7 @@ class App extends Component {
     this.state = {
       posts: [],
       modalShow: false,
+      modalShowProfile: false,
     };
   }
 
@@ -49,10 +50,10 @@ class App extends Component {
         />
         {console.log(this.state.posts)}
         {/* {this.state.dataAvail && <Grid grid={this.state.card} />} */}
-        <ProfileButton onClick={() => this.setState({ modalShow: true })}></ProfileButton>
+        <ProfileButton onClick={() => this.setState({ modalShowProfile: true })}></ProfileButton>
         <ProfileCreator
-          show={this.state.modalShow}
-          onHide={() => this.setState({ modalShow: false })}
+          show={this.state.modalShowProfile}
+          onHide={() => this.setState({ modalShowProfile: false })}
           backdrop="static"
           keyboard={false}
         />

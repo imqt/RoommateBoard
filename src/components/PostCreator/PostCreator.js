@@ -16,7 +16,7 @@ function PostCreator(props) {
       
       <Modal.Body>
         <h4>Title:</h4>
-        <textarea name="" id="" cols="90" rows="10"></textarea>
+        <textarea name="" id="" cols="70" rows="10"></textarea>
       </Modal.Body>
 
       <Modal.Footer>
