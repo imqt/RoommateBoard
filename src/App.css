@@ -10,10 +10,49 @@
 .PostContainer {
   height: 200px;
   width: 200px;
-  background-color: lightblue;
+  background-color: #a9d6e5;
   position: absolute;
+  background: linear-gradient(45deg, transparent 30px, #a9d6e5 20px);
+  filter: drop-shadow(5px -5px 5px rgba(0, 0, 0, 0.2));
+
+}
+
+.PostContainer:after {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 0px;
+  top: 0px;
+  right: 0px;
+  /* border-bottom: 50px solid red;
+  border-right: 50px solid transparent; */
+  /* border-left: 30px solid #a9d6e5;
+  border-right: 20px solid lightgray;*/
+  /* border-top: 20px solid transparent; */
+  position: absolute;
+  filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.2));
+}
+.PostContainer:before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 0px;
+  /* border-top: 80px solid white; */
+  border-left: 45px solid transparent;
+  border-top: 45px solid #89c2d9;
+  /* border-right: 30px solid #89c2d9;
+  border-left: 30px solid lightgray;*/
+  /* border-bottom: 30px solid red; */
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  filter: drop-shadow(3px -3px 3px rgba(0, 0, 0, 0.2));
+  margin-right: 10%;
 }
 
 .GhostPost {
   opacity: 0.4;
+}
+.PostContainer:nth-of-type(1) {
+  margin-right: 9%;
 }
