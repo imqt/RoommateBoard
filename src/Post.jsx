@@ -5,19 +5,20 @@ import parser from 'html-react-parser';
 export default function Post(props) {
   const { postData } = props;
 
-  // const [width, setWidth] = useState('');
-  // const [height, setHeight] = useState('');
+  const [height, setHeight] = useState('');
+  const [width, setWidth] = useState('');
 
 
-  // useEffect(() => {
-    
-  // })
+  useEffect(() => {
+    setHeight(350 + Math.random()*69);
+    setWidth(250 + Math.random()*69);
+  }, [])
 
   const postStyle = {
     left: postData.coordinate.x,
     top: postData.coordinate.y,
-    height: 350 + Math.random()*69,
-    width: 250 + Math.random()*69,
+    height: height,
+    width: width,
     // backgroundColor: postData.color,
   };
 
