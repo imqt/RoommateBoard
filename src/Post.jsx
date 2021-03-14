@@ -8,6 +8,8 @@ export default function Post(props) {
   const postStyle = {
     left: postData.coordinate.x,
     top: postData.coordinate.y,
+    height: 350 + Math.random()*69,
+    width: 250 + Math.random()*69,
     // backgroundColor: postData.color,
   };
 
