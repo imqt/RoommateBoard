@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import GenderLogo from "./components/GenderLogo/GenderLogo"
 import parser from 'html-react-parser';
 
 export default function Post(props) {
   const { postData } = props;
+
+  // const [width, setWidth] = useState('');
+  // const [height, setHeight] = useState('');
+
+
+  // useEffect(() => {
+    
+  // })
 
   const postStyle = {
     left: postData.coordinate.x,
@@ -32,7 +40,7 @@ export default function Post(props) {
 
   return (
     <div className={`${fullView ? `fullInvisibleWrapper` : ""}`} onClick={() => {setFullView(!fullView)}}>
-      <div id={postData.id} className={`${fullView ? `PostContainerFull ${getColorClassName()+"Full"}` : `PostContainer  ${getColorClassName()}`}`} style={postStyle}>
+      <div id={postData.id} className={`${fullView ? `PostContainerFull ${getColorClassName()+"Full"}` : `PostContainer  ${getColorClassName()}`}`} style={fullView ? null : postStyle}>
         <div className="InnerPostContainer">
           <h3>
             {postData.name}
