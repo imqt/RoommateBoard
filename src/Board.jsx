@@ -1,40 +1,31 @@
 import React, { useState, useEffect } from "react";
 import Post from "./Post";
 import GhostPost from "./GhostPost";
-import { uuidv4 } from "./util";
+import { uuidv4 } from "./util"
+import firebase from "./firebase";
+import "firebase/database";
+import { all } from "q";
 
-const placeHolderPosts = [
-  {
-    id: 1,
-    coordinate: {
-      x: 240,
-      y: 240,
-    },
-    content: "post 1",
-  },
-  {
-    id: 2,
-    coordinate: {
-      x: 432,
-      y: 854,
-    },
-    content: "post 2",
-  },
-  {
-    id: 3,
-    coordinate: {
-      x: 562,
-      y: 12,
-    },
-    content: "post 3",
-  },
-];
+const initPosts = () => {
+  let posts = []
+  const postsRoot = firebase.database().ref('posts');
+  postsRoot.once('value', (snapshot) => {
+    let allPosts = snapshot.val();
+    console.log(allPosts);
+    for (let post in allPosts) {
+      posts.push(allPosts[post]);
+    }
+  });
+  return posts; 
+}
+
 
 export default function Board(props) {
   const { selectPostLocationMode, showModal } = props;
 
   const [mouseCoordinate, setMouseCoordinate] = useState({});
-  const [posts, setPosts] = useState(placeHolderPosts);
+  const [posts, setPosts] = useState(initPosts());
+
 
   const onMouseMove = (e) => {
     setMouseCoordinate({ x: e.pageX, y: e.pageY });
@@ -44,7 +35,15 @@ export default function Board(props) {
     if (selectPostLocationMode) {
       showModal();
     }
-    // setPosts([...posts, createNewPost()]);
+
+    // console.log(createNewPost());
+    // let newPost = createNewPost();
+    // const postsRoot = firebase.database().ref('posts');
+    // postsRoot.once('value', () => {
+    //     const postRootNum = postsRoot.child(newPost.id);
+    //     postRootNum.update(newPost);
+    // });
+    // setPosts([...posts, newPost]);
   };
 
   const createNewPost = () => {

@@ -4,7 +4,10 @@ import firebase from "./firebase";
 import "firebase/database";
 import Board from "./Board";
 import AddButton from "./components/AddButton/AddButton";
-import PostCreator from "./components/PostCreator/PostCreator";
+import ProfileButton from "./components/ProfileButton/ProfileButton";
+import PostCreator from './components/PostCreator/PostCreator';
+import ProfileCreator from './components/ProfileCreator/ProfileCreator';
+import Logo from './Logo';
 
 class App extends Component {
   constructor() {
@@ -47,6 +50,15 @@ class App extends Component {
           onClick={() => this.setState({ selectPostLocationMode: true })}
         ></AddButton>
         <PostCreator
+          show={this.state.modalShow}
+          onHide={() => this.setState({ modalShow: false })}
+          backdrop="static"
+          keyboard={false}
+        />
+        {console.log(this.state.posts)}
+        {/* {this.state.dataAvail && <Grid grid={this.state.card} />} */}
+        <ProfileButton onClick={() => this.setState({ modalShow: true })}></ProfileButton>
+        <ProfileCreator
           show={this.state.modalShow}
           onHide={() => this.setState({ modalShow: false })}
           backdrop="static"
