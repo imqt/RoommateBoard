@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from "react";
-import { Form } from 'react-bootstrap';
-=======
 import React, { useState, useEffect, useRef } from "react";
 import { Form, Spinner } from 'react-bootstrap';
->>>>>>> 68f687876e86088103f1d4d00fd1a4a32d6c3f93
 import PostCreator from "./components/PostCreator/PostCreator";
 import Post from "./Post";
 import GhostPost from "./GhostPost";
@@ -92,11 +87,7 @@ export default function Board(props) {
       onClick={onMouseClick}
     >
       {/* Mouse coordinates: {mouseCoordinate.x} {mouseCoordinate.y} */}
-<<<<<<< HEAD
-      <Form.Control as="textarea" placeholder="Filter by Tags" rows={1} onChange={onSearchBarChange} style={{width: "300px", position: "fixed", top: "36px", right: "80px"}} ></Form.Control>
-=======
-      <Form.Control as="textarea" placeholder="Filter by Tags" rows={1} onChange={onSearchBarChange} style={{width: "180px", position: "absolute", top: "30px", right: "250px"}} ></Form.Control>
->>>>>>> 68f687876e86088103f1d4d00fd1a4a32d6c3f93
+      <Form.Control as="textarea" placeholder="Filter by Tags" rows={1} onChange={onSearchBarChange} style={{width: "180px", position: "fixed", top: "30px", right: "250px"}} ></Form.Control>
 
       {posts.map((post, i) => (
         post.tags && post.tags.includes(tag) && <Post postData={post} />

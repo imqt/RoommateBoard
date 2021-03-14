@@ -40,15 +40,9 @@ export default function Logo(props) {
             {/* <div id="logoBR">
             <img src={LogoBR} class="img-thumbnail" alt="LogoBR"></img>
             </div> */}
-<<<<<<< HEAD
             <div className={"animate"} style={logoStyle}></div>
-            <h3 style={{ position: "fixed", left: 82, top: 38, width: 200, color:"#141414" }}>Room_it!</h3>
-=======
-            <div style={{ position: "absolute" }}>
-                <div className={"animate"} style={logoStyle}></div>
-            </div>
-            <h3 style={{ position: "absolute", left: 250, top: 30, width: 200, color:"#141414" }}>Room_it!</h3>
->>>>>>> 68f687876e86088103f1d4d00fd1a4a32d6c3f93
+            <h3 style={{ position: "fixed", left: 250, top: 30, width: 200, color:"#141414" }}>Room_it!</h3>
+
         </div>
     );
 }
