@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import parser from 'html-react-parser';
 
 export default function Post(props) {
   const { postData } = props;
@@ -10,7 +11,7 @@ export default function Post(props) {
 
   return (
     <div id={postData.id} className="PostContainer" style={postStyle}>
-      {postData.content}
+      {parser(postData.content || "")}
     </div>
   );
 }

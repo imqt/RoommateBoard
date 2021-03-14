@@ -1,75 +1,79 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import PostCreator from "./components/PostCreator/PostCreator";
 import Post from "./Post";
 import GhostPost from "./GhostPost";
-import { uuidv4 } from "./util"
+import { uuidv4 } from "./util";
 import firebase from "./firebase";
 import "firebase/database";
-import { all } from "q";
 
 const initPosts = () => {
-  let posts = []
-  const postsRoot = firebase.database().ref('posts');
-  postsRoot.once('value', (snapshot) => {
+  let posts = [];
+  const postsRoot = firebase.database().ref("posts");
+  postsRoot.once("value", (snapshot) => {
     let allPosts = snapshot.val();
+    console.log("Firebase pull: allPosts");
     console.log(allPosts);
     for (let post in allPosts) {
       posts.push(allPosts[post]);
     }
   });
-  return posts; 
-}
-
+  return posts;
+};
 
 export default function Board(props) {
-  const { selectPostLocationMode, showModal } = props;
+  const { selectPostLocationMode, isModalOpen, showModal, hideModal } = props;
 
-  const [mouseCoordinate, setMouseCoordinate] = useState({});
-  const [posts, setPosts] = useState(initPosts());
+  const [posts, setPosts] = useState([]);
+  const [mouseCoordinate, setMouseCoordinate] = useState({x: 0, y: 0});
 
+  // const lastClickedCoordinate = {x: 0, y: 0};
 
-  const onMouseMove = (e) => {
-    setMouseCoordinate({ x: e.pageX, y: e.pageY });
-  };
-
-  const onMouseClick = () => {
+  const onMouseClick = (e) => {
+    console.log(e.clientX);
+    console.log(e.clientY);
+    setMouseCoordinate({x: e.clientX, y: e.clientY});
     if (selectPostLocationMode) {
       showModal();
     }
-
-    // console.log(createNewPost());
-    // let newPost = createNewPost();
-    // const postsRoot = firebase.database().ref('posts');
-    // postsRoot.once('value', () => {
-    //     const postRootNum = postsRoot.child(newPost.id);
-    //     postRootNum.update(newPost);
-    // });
-    // setPosts([...posts, newPost]);
   };
 
-  const createNewPost = () => {
-    return {
+  const createNewPost = (message) => {
+    const newPost = {
       id: uuidv4(),
       coordinate: { x: mouseCoordinate.x, y: mouseCoordinate.y },
-      content: "post new",
+      content: message,
     };
+    const postsRoot = firebase.database().ref('posts');
+    postsRoot.once('value', () => {
+        const postRootNum = postsRoot.child(newPost.id);
+        postRootNum.update(newPost);
+    });
+    console.log(posts);
+    setPosts([...posts, newPost]);
+    hideModal();
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setPosts(initPosts());
+  }, []);
 
   return (
     <div
       className="BoardContainer"
-      onMouseMove={onMouseMove.bind(this)}
       onClick={onMouseClick}
     >
       Mouse coordinates: {mouseCoordinate.x} {mouseCoordinate.y}
       {posts.map((post, i) => (
         <Post postData={post} />
       ))}
-      <GhostPost
-        coordinate={mouseCoordinate}
-        isVisible={selectPostLocationMode}
+      <PostCreator
+        show={isModalOpen}
+        onHide={hideModal}
+        backdrop="static"
+        keyboard={false}
+        onSubmitClick={createNewPost}
       />
+      <GhostPost mouseCoordinate={mouseCoordinate} isVisible={selectPostLocationMode} />
     </div>
   );
 }

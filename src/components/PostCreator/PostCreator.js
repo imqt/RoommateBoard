@@ -1,39 +1,14 @@
 import { Modal, Button} from 'react-bootstrap';
-import EditorJS from '@editorjs/editorjs';
-import Header from '@editorjs/header'; 
-import SimpleImage from '@editorjs/simple-image'; 
-import List from '@editorjs/list';
 import ReactQuill from 'react-quill'; // ES6
+import { useState } from 'react';
 
 
 function PostCreator(props) {
-    console.log("Post creator rerendered");
-    
-    const editor = new EditorJS({ 
 
-        holder: 'editorjs', 
-        placeholder: 'Start writing something!',
-        tools: { 
-            image: {
-                class: SimpleImage,
-                inlineToolbar: ['link'],
-            },
-            header: {
-                class: Header,
-                config: {
-                    placeholder: 'Enter a header',
-                    levels: [3, 4, 5, 6],
-                    defaultLevel: 5,
-                }
-            },
-            list: {
-                class: List,
-                inlineToolbar: true,
-            },
-        }, 
-    })
-      
-      return (
+    const [value, setValue] = useState('');
+    const { onSubmitClick } = props;
+
+    return (
         <Modal
         {...props}
         size="lg"
@@ -51,26 +26,22 @@ function PostCreator(props) {
                 theme="snow"
                 modules = {{
                     toolbar: [
-                      [{ 'header': [1, 2, false] }],
-                      ['bold', 'italic', 'underline','strike', 'blockquote'],
-                      [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
-                      ['link', 'image'],
-                      ['clean']
+                        [{ 'size': ['small', false, 'large', 'huge'] }],
+                        [{ 'font': [] }],
+                        ['bold', 'italic', 'underline', 'code-block'],
+                        [{'list': 'ordered'}, {'list': 'bullet'}],
+                        ['link', 'image'],
+                        [{ 'color': [] }, { 'background': [] }],
+                        [{ 'align': [] }],
                     ],
-                  }}
+                }}
+                value={value}
+                onChange={setValue}
                   />
-            {/* <div style={{borderWidth:"2px", borderColor:"black",borderStyle:"solid"}} id="editorjs"></div>    */}
         </Modal.Body>
 
         <Modal.Footer>
-            <Button onClick={() => {
-                editor.save()
-                .then((savedData) => {
-                    console.log("AAA" + savedData);
-                });
-            }}
-            >Post
-            </Button>
+            <Button onClick={() => {onSubmitClick(value)}}>Post</Button>
             <Button onClick={props.onHide}>Close</Button>
         </Modal.Footer>
 
