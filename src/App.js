@@ -4,17 +4,17 @@ import firebase from "./firebase";
 import "firebase/database";
 import Board from "./Board";
 import AddButton from "./components/AddButton/AddButton";
-import PostCreator from './components/PostCreator/PostCreator'
+import PostCreator from "./components/PostCreator/PostCreator";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       posts: [],
+      selectPostLocationMode: false,
       modalShow: false,
     };
   }
-
 
   componentDidMount() {
     const cardRoot = firebase.database().ref("posts");
@@ -36,9 +36,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Board />
+        <Board
+          selectPostLocationMode={this.state.selectPostLocationMode}
+          showModal={() =>
+            this.setState({ selectPostLocationMode: false, modalShow: true })
+          }
+        />
 
-        <AddButton onClick={() => this.setState({ modalShow: true })}></AddButton>
+        <AddButton
+          onClick={() => this.setState({ selectPostLocationMode: true })}
+        ></AddButton>
         <PostCreator
           show={this.state.modalShow}
           onHide={() => this.setState({ modalShow: false })}

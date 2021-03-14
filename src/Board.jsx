@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Post from "./Post";
-import { uuidv4 } from "./util"
+import GhostPost from "./GhostPost";
+import { uuidv4 } from "./util";
 
 const placeHolderPosts = [
   {
@@ -30,6 +31,8 @@ const placeHolderPosts = [
 ];
 
 export default function Board(props) {
+  const { selectPostLocationMode, showModal } = props;
+
   const [mouseCoordinate, setMouseCoordinate] = useState({});
   const [posts, setPosts] = useState(placeHolderPosts);
 
@@ -38,21 +41,21 @@ export default function Board(props) {
   };
 
   const onMouseClick = () => {
-    console.log(createNewPost());
-    setPosts([...posts, createNewPost()]);
+    if (selectPostLocationMode) {
+      showModal();
+    }
+    // setPosts([...posts, createNewPost()]);
   };
 
   const createNewPost = () => {
     return {
       id: uuidv4(),
-      coordinate: {x: mouseCoordinate.x, y: mouseCoordinate.y},
+      coordinate: { x: mouseCoordinate.x, y: mouseCoordinate.y },
       content: "post new",
     };
   };
 
-  useEffect(() => {
-
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <div
@@ -64,6 +67,10 @@ export default function Board(props) {
       {posts.map((post, i) => (
         <Post postData={post} />
       ))}
+      <GhostPost
+        coordinate={mouseCoordinate}
+        isVisible={selectPostLocationMode}
+      />
     </div>
   );
 }
