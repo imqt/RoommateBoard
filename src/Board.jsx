@@ -78,7 +78,7 @@ export default function Board(props) {
     setTimeout(() => {
       setPosts(posts);
       setLoading(false);
-    }, 2000);
+    }, 3000);
   }, []);
 
   return (
