@@ -14,6 +14,7 @@ class App extends Component {
     super();
     this.state = {
       posts: [],
+      selectPostLocationMode: false,
       modalShow: false,
     };
   }
@@ -38,9 +39,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Logo/>
-        <Board />
-        <AddButton onClick={() => this.setState({ modalShow: true })}></AddButton>
+        <Board
+          selectPostLocationMode={this.state.selectPostLocationMode}
+          showModal={() =>
+            this.setState({ selectPostLocationMode: false, modalShow: true })
+          }
+        />
+
+        <AddButton
+          onClick={() => this.setState({ selectPostLocationMode: true })}
+        ></AddButton>
         <PostCreator
           show={this.state.modalShow}
           onHide={() => this.setState({ modalShow: false })}
