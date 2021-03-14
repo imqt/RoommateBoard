@@ -20,23 +20,6 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    const cardRoot = firebase.database().ref("posts");
-
-    cardRoot.once("value", (snapshot) => {
-      let posts = snapshot.val();
-      let newState = [];
-      for (let post in posts) {
-        newState.push({
-          id: post,
-        });
-      }
-      this.setState({
-        posts: newState,
-      });
-    });
-  }
-
   render() {
     return (
       <div className="App">
