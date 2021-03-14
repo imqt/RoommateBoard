@@ -14,7 +14,7 @@
 
 .addButton:hover {
     transform: scale(1.2);
-    color: #FA9A85;
+    color: #ccb7ae;
     text-decoration: none;
     user-select: none;
 }
