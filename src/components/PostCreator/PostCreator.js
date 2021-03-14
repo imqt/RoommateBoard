@@ -100,7 +100,7 @@ function PostCreator(props) {
             </ButtonGroup>
 
             <p style={{marginTop: "20px"}}># Tag</p>
-            <textarea id="hashTags" rows="4" cols="50"></textarea>
+            <textarea id="hashTags" rows="1" cols="106"></textarea>
 
             <p style={{marginTop: "20px"}}>Bulletin Content</p>
             <ReactQuill 
