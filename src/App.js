@@ -4,7 +4,8 @@ import firebase from "./firebase";
 import "firebase/database";
 import Board from "./Board";
 import AddButton from "./components/AddButton/AddButton";
-import PostCreator from './components/PostCreator/PostCreator'
+import PostCreator from './components/PostCreator/PostCreator';
+import Logo from './Logo';
 
 class App extends Component {
   constructor() {
@@ -14,7 +15,6 @@ class App extends Component {
       modalShow: false,
     };
   }
-
 
   componentDidMount() {
     const cardRoot = firebase.database().ref("posts");
@@ -36,6 +36,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Logo/>
         <Board />
 
         <AddButton onClick={() => this.setState({ modalShow: true })}></AddButton>
