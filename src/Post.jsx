@@ -8,7 +8,7 @@ export default function Post(props) {
   const postStyle = {
     left: postData.coordinate.x,
     top: postData.coordinate.y,
-    backgroundColor: postData.color,
+    // backgroundColor: postData.color,
   };
 
   const getClassName = () => {
@@ -21,9 +21,12 @@ export default function Post(props) {
     } 
   };
 
+  const getColorClassName = () => {
+    return postData.color + "Post";
+  };
 
   return (
-    <div id={postData.id} className={getClassName()} style={postStyle}>
+    <div id={postData.id} className={`PostContainer ${getColorClassName()}`} style={postStyle}>
       <div className="InnerPostContainer">
         <h3>
           {postData.name}
