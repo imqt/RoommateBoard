@@ -14,7 +14,6 @@
   position: absolute;
   background: linear-gradient(45deg, transparent 30px, #a9d6e5 20px);
   filter: drop-shadow(5px -5px 5px rgba(0, 0, 0, 0.2));
-
 }
 
 .PostContainer:after {
