@@ -101,30 +101,27 @@ function PostCreator(props) {
                     </select>
                 </label>
             </form>
-            <h5>What else should we know about :)?</h5>
             <p>Pick a Color</p>
-
-
             <ButtonGroup aria-label="Basic example">
                 <Button variant="light" onClick={() => setColorSelected("white")}>white</Button>
-                <Button variant="secondary" onClick={() => setColorSelected("grey")}>grey</Button>
-                <Button variant="primary" onClick={() => setColorSelected("blue")}>blue</Button>
-                <Button variant="success" onClick={() => setColorSelected("green")}>green</Button>
-                <Button variant="warning" onClick={() => setColorSelected("yellow")}>yellow</Button>
-                <Button variant="danger" onClick={() => setColorSelected("red")}>red</Button>
+                <Button variant="outline-secondary" onClick={() => setColorSelected("grey")}>grey</Button>
+                <Button variant="outline-primary" onClick={() => setColorSelected("blue")}>blue</Button>
+                <Button variant="outline-success" onClick={() => setColorSelected("green")}>green</Button>
+                <Button variant="outline-warning" onClick={() => setColorSelected("yellow")}>yellow</Button>
+                <Button variant="outline-danger" onClick={() => setColorSelected("red")}>red</Button>
             </ButtonGroup>
 
             <p style={{marginTop: "20px"}}>Pick a Background</p>
             <ButtonGroup aria-label="Basic example">
-                <Button variant="secondary" onClick={() => setBackgroundSelected("paper")}>plain ol' paper</Button>
-                <Button variant="light" onClick={() => setBackgroundSelected("sticky")}>sticky note</Button>
-                <Button variant="primary" onClick={() => setBackgroundSelected("scrap")}>scrap paper</Button>
+                <Button variant="outline-secondary" onClick={() => setBackgroundSelected("paper")}>plain ol' paper</Button>
+                <Button variant="outline-warning" onClick={() => setBackgroundSelected("sticky")}>sticky note</Button>
+                <Button variant="outline-primary" onClick={() => setBackgroundSelected("scrap")}>scrap paper</Button>
             </ButtonGroup>
 
             <p style={{marginTop: "20px"}}># Tag</p>
             <textarea id="hashTags" rows="1" cols="106"></textarea>
 
-            <p style={{marginTop: "20px"}}>Bulletin Content</p>
+            <p style={{marginTop: "20px"}}>What else should we know about :)?</p>
             <ReactQuill 
                 name="value"
                 theme="snow"
