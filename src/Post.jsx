@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import GenderLogo from "./components/GenderLogo/GenderLogo"
+import parser from 'html-react-parser';
 
 export default function Post(props) {
   const { postData } = props;
@@ -17,6 +18,7 @@ export default function Post(props) {
       </h2>
       Pet: {postData.has_pet == 0? "No": "Yes"}
       <p>{postData.content}</p>
+      {parser(postData.content || "")}
     </div>
   );
 }
