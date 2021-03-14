@@ -74,7 +74,6 @@ body {
 .fullInvisibleWrapper {
   height: 100vh;
   width: 100vw;
-  background-color: red;
   display: block;
   z-index: 99;
 }
