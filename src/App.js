@@ -36,6 +36,8 @@ class App extends Component {
         />
 
         <Logo/>
+        <div className="location"></div>
+        <p className="locationText">📌 Vancouver</p>
 
         <AddButton
           onClick={() => this.setState({ selectPostLocationMode: true })}

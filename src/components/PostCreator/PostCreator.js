@@ -1,6 +1,7 @@
 import { Modal, Button, ButtonGroup } from 'react-bootstrap';
 import ReactQuill from 'react-quill'; // ES6
 import { useState } from 'react';
+import ProfileImg from '../../components/img/profileImage.jpeg';
 
 
 function PostCreator(props) {
@@ -9,10 +10,11 @@ function PostCreator(props) {
         name: "",
         gender: "female",
         pets: "0",
-        price: "500 ~ 750"
+        price: "500 ~ 750",
+        location: "Vancouver"
       };
 
-    const [{ name, gender, pets, price }, setState] = useState(initialState);
+    const [{ name, gender, pets, price, location }, setState] = useState(initialState);
     const [value, setValue] = useState('');
     const [colorSelected, setColorSelected] = useState('white');
     const [backgroundSelected, setBackgroundSelected] = useState('paper');
@@ -25,7 +27,7 @@ function PostCreator(props) {
 
     const clearState = () => {
         setState({ ...initialState });
-        setValue();
+        setValue('');
       };
     
       const onChange = e => {
@@ -43,6 +45,8 @@ function PostCreator(props) {
         >
         <Modal.Header closeButton={true}>
             <Modal.Title id="contained-modal-title-vcenter">
+
+
             Create a Bulletin
             </Modal.Title>
         </Modal.Header>
@@ -70,6 +74,24 @@ function PostCreator(props) {
                     </select>
                 </label>
                 <label>
+                    Location:
+                    <select name="location" value={location} onChange={onChange}>
+                    <option value="Abbotsford">Abbotsford</option>
+                    <option value="Burnaby">Burnaby</option>
+                    <option value="Coquitlam">Coquitlam</option>
+                    <option value="Delta">Delta</option>
+                    <option value="Lanley">Lanley</option>
+                    <option value="New Westminister">New Westminister</option>
+                    <option value="North Vancouver">North Vancouver</option>
+                    <option value="Richmond">Richmond</option>
+                    <option value="Surrey">Surrey</option>
+                    <option value="Vancouver">Vancouver</option>
+                    <option value="Victoria">Victoria</option>
+                    <option value="White Rock">White Rock</option>
+                    <option value="Pitt Meadows">Pitt Meadows</option>
+                    </select>
+                </label>
+                <label>
                     Price Range:
                     <select name="price" value={price} onChange={onChange}>
                     <option selected value="1">&#62; 500</option>
@@ -79,30 +101,27 @@ function PostCreator(props) {
                     </select>
                 </label>
             </form>
-            <h5>What else should we know about :)?</h5>
             <p>Pick a Color</p>
-
-
             <ButtonGroup aria-label="Basic example">
                 <Button variant="light" onClick={() => setColorSelected("white")}>white</Button>
-                <Button variant="secondary" onClick={() => setColorSelected("grey")}>grey</Button>
-                <Button variant="primary" onClick={() => setColorSelected("blue")}>blue</Button>
-                <Button variant="success" onClick={() => setColorSelected("green")}>green</Button>
-                <Button variant="warning" onClick={() => setColorSelected("yellow")}>yellow</Button>
-                <Button variant="danger" onClick={() => setColorSelected("red")}>red</Button>
+                <Button variant="outline-secondary" onClick={() => setColorSelected("grey")}>grey</Button>
+                <Button variant="outline-primary" onClick={() => setColorSelected("blue")}>blue</Button>
+                <Button variant="outline-success" onClick={() => setColorSelected("green")}>green</Button>
+                <Button variant="outline-warning" onClick={() => setColorSelected("yellow")}>yellow</Button>
+                <Button variant="outline-danger" onClick={() => setColorSelected("red")}>red</Button>
             </ButtonGroup>
 
             <p style={{marginTop: "20px"}}>Pick a Background</p>
             <ButtonGroup aria-label="Basic example">
-                <Button variant="secondary" onClick={() => setBackgroundSelected("paper")}>plain ol' paper</Button>
-                <Button variant="light" onClick={() => setBackgroundSelected("sticky")}>sticky note</Button>
-                <Button variant="primary" onClick={() => setBackgroundSelected("scrap")}>scrap paper</Button>
+                <Button variant="outline-secondary" onClick={() => setBackgroundSelected("paper")}>plain ol' paper</Button>
+                <Button variant="outline-warning" onClick={() => setBackgroundSelected("sticky")}>sticky note</Button>
+                <Button variant="outline-primary" onClick={() => setBackgroundSelected("scrap")}>scrap paper</Button>
             </ButtonGroup>
 
             <p style={{marginTop: "20px"}}># Tag</p>
             <textarea id="hashTags" rows="1" cols="104"></textarea>
 
-            <p style={{marginTop: "20px"}}>Bulletin Content</p>
+            <p style={{marginTop: "20px"}}>What else should we know about :)?</p>
             <ReactQuill 
                 name="value"
                 theme="snow"
@@ -126,12 +145,26 @@ function PostCreator(props) {
         <Modal.Footer>
             <Button onClick={() => {
                 clearState(); 
-                onSubmitClick(name, gender, pets, price, value, colorSelected, backgroundSelected, getHashTagList())}}>Post</Button>
+
+                onSubmitClick(name, gender, pets, price, location, value, colorSelected, backgroundSelected, getHashTagList())}}>Post</Button>
             <Button onClick={props.onHide}>Close</Button>
         </Modal.Footer>
 
         </Modal>
     );
+    // function previewFile() {
+    //     var fileImg = document.getElementById("proPic");
+    //     var file = document.querySelector("input[type=file]").files[0];
+    //     var reader = new FileReader();
+    
+    //     reader.addEventListener("load", function () {
+    //       fileImg.src = reader.result;
+    //     }, false);
+    
+    //     if (file) {
+    //       reader.readAsDataURL(file);
+    //     }
+    //   }
 }
 
 export default PostCreator;

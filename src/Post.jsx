@@ -36,7 +36,8 @@ export default function Post(props) {
             {postData.name}
             <GenderLogo gender={postData.gender} />
           </h3>
-          Pets: {postData.pets === 0? "No": "Yes"}
+          <p>Location: {postData.location}</p>
+          <p>Pets: {postData.pets == 0? "No": "Yes"}</p>
           {parser(postData.content || "")}
         </div>
       </div>

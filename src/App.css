@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .App {
   user-select: none !important;
 }
@@ -6,6 +7,8 @@ body {
   padding:0px;
 }
 
+=======
+>>>>>>> 68f687876e86088103f1d4d00fd1a4a32d6c3f93
 .BoardContainer {
   height: 100vh;
   width: 100vw;
@@ -13,7 +16,7 @@ body {
 }
 
 .PostContainer {
-  height: 300px;
+  height: 350px;
   width: 250px;
   /* background-color: #a9d6e5; */
   position: absolute;
@@ -23,8 +26,53 @@ body {
   padding-bottom: 50px;
   overflow: hidden;
   border-radius: 2px;
+<<<<<<< HEAD
   transition-duration: 0.2s;
   z-index: 1;
+=======
+}
+
+.whitePost {
+  background: linear-gradient(45deg, transparent 30px, white 30px);
+}
+.whitePost:before {
+  border-top: 45px solid #f2f2f2;
+}
+
+.greyPost {
+  background: linear-gradient(45deg, transparent 30px, #cccccc 30px);
+}
+.greyPost:before {
+  border-top: 45px solid #b2b2b2;
+}
+
+.bluePost {
+  background: linear-gradient(45deg, transparent 30px, #bae1ff 30px);
+}
+.bluePost:before {
+  border-top: 45px solid #c7e7ff;
+}
+
+.greenPost {
+  background: linear-gradient(45deg, transparent 30px, #ddf6dd 30px);
+}
+.greenPost:before {
+  border-top: 45px solid #c9f1c9;
+}
+
+.yellowPost {
+  background: linear-gradient(45deg, transparent 30px, #fff5ba 30px);
+}
+.yellowPost:before {
+  border-top: 45px solid #fff8ce;
+}
+
+.redPost {
+  background: linear-gradient(45deg, transparent 30px, #fcd4dd 30px);
+}
+.redPost:before {
+  border-top: 45px solid #f1c9d2;
+>>>>>>> 68f687876e86088103f1d4d00fd1a4a32d6c3f93
 }
 
 .InnerPostContainer {
@@ -106,6 +154,30 @@ body {
   height: 100vh;
   width: 100vw;
 }
+
+.centered {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  /* bring your own prefixes */
+}
+
+.location {
+  position: fixed;
+  /* left: 82px; */
+  top: 80px;
+  border: 0;
+  width: 100vw;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.locationText {
+  position: fixed;
+  left: 228px;
+  top: 90px;
+  /* left: 380px;
+  top: 40px; */
+}
+
 .PostContainer:nth-of-type(1) {
   margin-right: 9%;
 }
