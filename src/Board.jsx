@@ -47,8 +47,12 @@ export default function Board(props) {
     setTag(input);
   };
 
-  const createNewPost = (message, colorSelected, backgroundSelected, tags) => {
+  const createNewPost = (name, gender, pets, price, message, colorSelected, backgroundSelected, tags) => {
     const newPost = {
+      name: name,
+      gender: gender,
+      pets: pets,
+      price: price,
       id: uuidv4(),
       coordinate: { x: mouseCoordinate.x, y: mouseCoordinate.y },
       content: message,

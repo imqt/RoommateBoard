@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import GenderLogo from "./components/GenderLogo/GenderLogo"
 import parser from 'html-react-parser';
 
 export default function Post(props) {
@@ -14,15 +15,23 @@ export default function Post(props) {
     if (postData.background === "paper") {
       return "PostContainer";
     } else if (postData.background === "sticky") {
-      return "TODO";
+      return "PostContainer";
     } else if (postData.background === "scrap") {
-      return "TODO";
+      return "PostContainer";
     } 
   };
 
+
   return (
     <div id={postData.id} className={getClassName()} style={postStyle}>
-      {parser(postData.content || "")}
+      <div className="InnerPostContainer">
+        <h3>
+          {postData.name}
+          <GenderLogo gender={postData.gender} />
+        </h3>
+        Pets: {postData.pets == 0? "No": "Yes"}
+        {parser(postData.content || "")}
+        </div>
     </div>
   );
 }
