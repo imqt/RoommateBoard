@@ -39,10 +39,10 @@
 }
 
 .greenPost {
-  background: linear-gradient(45deg, transparent 30px, #baffc9 30px);
+  background: linear-gradient(45deg, transparent 30px, #ddf6dd 30px);
 }
 .greenPost:before {
-  border-top: 45px solid #c7ffd3;
+  border-top: 45px solid #c9f1c9;
 }
 
 .yellowPost {
@@ -53,10 +53,10 @@
 }
 
 .redPost {
-  background: linear-gradient(45deg, transparent 30px, #ffb3ba 30px);
+  background: linear-gradient(45deg, transparent 30px, #fcd4dd 30px);
 }
 .redPost:before {
-  border-top: 45px solid #ffc2c7;
+  border-top: 45px solid #f1c9d2;
 }
 
 .InnerPostContainer {
