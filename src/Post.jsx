@@ -9,9 +9,10 @@ export default function Post(props) {
     top: postData.coordinate.y,
   };
 
+
   return (
     <div id={postData.id} className="PostContainer" style={postStyle}>
-      {parser(postData.content || "")}
+        {parser(postData.content || "")}
     </div>
   );
 }
