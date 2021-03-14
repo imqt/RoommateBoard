@@ -290,14 +290,13 @@ body {
 }
 .CardBoardWhite {
   background-image: url(./components/img/texture/white-cardboard-texture-hi-res-thumb30.png);
-<<<<<<< HEAD
 }
+
 .genderLogo {
   height: 20px;
   width: 20px;
   margin-left: 10px;
 }
-
 
 /* =============== Scrollbar =============== */
 /* width */
@@ -320,6 +319,3 @@ body {
   background: #777; 
 }
 /* =============== ========= =============== */
-=======
-}
->>>>>>> c431f01ffcc814ef478958d73f7818354468f345
