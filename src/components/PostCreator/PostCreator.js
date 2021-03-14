@@ -56,11 +56,11 @@ function PostCreator(props) {
                 <label>
                     Name:
                     {/* <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Name"/> */}
-                    <input type="text" value={name} name="name" onChange={onChange} placeholder="Name"/>
+                    <input type="text" value={name} name="name" onChange={onChange} placeholder="Name" style={{marginRight: 10, marginLeft: 10}}/>
                 </label>
                 <label>
                     Gender:
-                    <select name="gender" value={gender} onChange={onChange}>
+                    <select name="gender" value={gender} onChange={onChange}  style={{marginRight: 10, marginLeft: 10}}>
                         <option selected value="female">Female</option>
                         <option value="male">Male</option>
                         <option value="other">Other</option>
@@ -68,14 +68,14 @@ function PostCreator(props) {
                 </label>
                 <label>
                     Pets:
-                    <select name="pets" value={pets} onChange={onChange}>
+                    <select name="pets" value={pets} onChange={onChange}  style={{marginRight: 10, marginLeft: 10}}>
                         <option value="1">Yes</option>
                         <option selected value="0">No</option>
                     </select>
                 </label>
                 <label>
                     Location:
-                    <select name="location" value={location} onChange={onChange}>
+                    <select name="location" value={location} onChange={onChange}  style={{marginRight: 10, marginLeft: 10}}>
                     <option value="Abbotsford">Abbotsford</option>
                     <option value="Burnaby">Burnaby</option>
                     <option value="Coquitlam">Coquitlam</option>
@@ -93,7 +93,7 @@ function PostCreator(props) {
                 </label>
                 <label>
                     Price Range:
-                    <select name="price" value={price} onChange={onChange}>
+                    <select name="price" value={price} onChange={onChange}  style={{marginRight: 10, marginLeft: 10}}>
                     <option selected value="1">&#62; 500</option>
                     <option value="2">500 ~ 750</option>
                     <option value="3">751 ~ 1000</option>
@@ -101,7 +101,7 @@ function PostCreator(props) {
                     </select>
                 </label>
             </form>
-            <p>Pick a Color</p>
+            <p  style={{marginTop: 10}}>Pick a Color</p>
             <ButtonGroup aria-label="Basic example">
                 <Button variant="light" onClick={() => setColorSelected("white")}>white</Button>
                 <Button variant="outline-secondary" onClick={() => setColorSelected("grey")}>grey</Button>

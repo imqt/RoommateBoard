@@ -23,7 +23,7 @@ body {
   padding-bottom: 50px;
   overflow: hidden;
   border-radius: 2px;
-  transition-duration: 0.2s;
+  /* transition-duration: 0.2s; */
   z-index: 1;
 }
 
