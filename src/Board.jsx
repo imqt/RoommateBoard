@@ -39,8 +39,14 @@ export default function Board(props) {
     }
   };
 
-  const createNewPost = (message) => {
+  const createNewPost = (name, gender, pets, price, message) => {
+    console.log(name);
+    console.log(gender);
     const newPost = {
+      name: name,
+      gender: gender,
+      pets: pets,
+      price: price,
       id: uuidv4(),
       coordinate: { x: mouseCoordinate.x, y: mouseCoordinate.y },
       content: message,

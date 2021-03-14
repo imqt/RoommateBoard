@@ -8,12 +8,12 @@
 }
 
 .PostContainer {
-  height: 200px;
-  width: 200px;
-  position: absolute;
+  height: 250px;
+  width: 250px;
   background-color: #a9d6e5;
-  background: linear-gradient(45deg, transparent 10px, #a9d6e5 10px);
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.2));
+  position: absolute;
+  background: linear-gradient(45deg, transparent 30px, #a9d6e5 20px);
+  filter: drop-shadow(5px -5px 5px rgba(0, 0, 0, 0.2));
   padding: 17px;
   overflow: hidden;
   border-radius: 2px;
@@ -67,4 +67,10 @@
 }
 .PostContainer:nth-of-type(1) {
   margin-right: 9%;
+}
+
+.genderLogo {
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
 }
