@@ -53,6 +53,11 @@
 .GhostPost {
   opacity: 0.4;
 }
+
+.GhostPostMousePad {
+  height: 100vh;
+  width: 100vw;
+}
 .PostContainer:nth-of-type(1) {
   margin-right: 9%;
 }
