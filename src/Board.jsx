@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Form } from 'react-bootstrap';
+import { Form, Spinner } from 'react-bootstrap';
 import PostCreator from "./components/PostCreator/PostCreator";
 import Post from "./Post";
 import GhostPost from "./GhostPost";
@@ -27,6 +27,7 @@ export default function Board(props) {
   const [posts, setPosts] = useState([]);
   const [mouseCoordinate, setMouseCoordinate] = useState({x: 0, y: 0});
   const [tag, setTag] = useState("");
+  const [loading, setLoading] = useState(true);
 
   // const lastClickedCoordinate = {x: 0, y: 0};
 
@@ -71,7 +72,11 @@ export default function Board(props) {
   };
 
   useEffect(() => {
-    setPosts(initPosts());
+    const posts = initPosts();
+    setTimeout(() => {
+      setPosts(posts);
+      setLoading(false);
+    }, 2000);
   }, []);
 
   return (
@@ -85,6 +90,9 @@ export default function Board(props) {
       {posts.map((post, i) => (
         post.tags && post.tags.includes(tag) && <Post postData={post} />
       ))}
+      {loading && <Spinner className="centered" animation="border" role="status">
+        <span className="sr-only">Loading...</span>
+      </Spinner>}
       <PostCreator
         show={isModalOpen}
         onHide={hideModal}
