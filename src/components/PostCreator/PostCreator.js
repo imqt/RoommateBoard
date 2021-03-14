@@ -7,6 +7,8 @@ import ReactQuill from 'react-quill'; // ES6
 
 
 function PostCreator(props) {
+    const { onSubmitClick } = props;
+
     console.log("Post creator rerendered");
     
     const editor = new EditorJS({ 
@@ -63,12 +65,16 @@ function PostCreator(props) {
         </Modal.Body>
 
         <Modal.Footer>
-            <Button onClick={() => {
-                editor.save()
-                .then((savedData) => {
-                    console.log("AAA" + savedData);
-                });
-            }}
+            <Button onClick={
+              // () => {
+              //   console.log(1);
+              //     editor.save()
+              //     .then((savedData) => {
+              //         console.log("AAA" + savedData);
+              //     });
+              // }
+              onSubmitClick
+            }
             >Post
             </Button>
             <Button onClick={props.onHide}>Close</Button>
