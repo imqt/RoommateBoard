@@ -37,11 +37,11 @@ export default function Board(props) {
     }
   };
 
-  const createNewPost = () => {
+  const createNewPost = (message) => {
     const newPost = {
       id: uuidv4(),
       coordinate: { x: mouseCoordinate.x, y: mouseCoordinate.y },
-      content: "post new",
+      content: message,
     };
     const postsRoot = firebase.database().ref('posts');
     postsRoot.once('value', () => {
