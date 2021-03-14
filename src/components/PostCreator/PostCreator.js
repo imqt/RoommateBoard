@@ -77,6 +77,7 @@ function PostCreator(props) {
             <ReactQuill 
                 name="value"
                 theme="snow"
+                placeholder="Tell us more about yourself"
                 modules = {{
                     toolbar: [
                         [{ 'size': ['small', false, 'large', 'huge'] }],
