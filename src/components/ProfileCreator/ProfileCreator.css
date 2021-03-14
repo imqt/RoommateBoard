@@ -1,0 +1,12 @@
+.singleLineForm {
+    display: flex;
+}
+
+.image-upload input {
+    display: none;
+}
+
+#proPic {
+    width: 100px;
+    height: 100px;
+}
