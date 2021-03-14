@@ -51,21 +51,22 @@ body {
   transition-duration: 0.2s;
   z-index: 1;
   overflow: hidden;
-  height: 80vh;
-  width: 69vw;
+  height: 70vh;
+  width: 55w;
   position: absolute !important;
   top:50% !important;
   left:50% !important;
   transform: translate(-50%,-50%);
   padding-top: 30px;
   padding-bottom: 30px;
-  padding-left: 40px;
+  padding-left: 2px;
   padding-right:2px;
   filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.4));
   z-index: 69;
 }
 .PostContainerFull .InnerPostContainer {
   overflow: hidden;
+  padding: 0px 160px;
 }
 .PostContainerFull:hover .InnerPostContainer {
   overflow: auto;
@@ -81,6 +82,7 @@ body {
 .InnerPostContainer img:not(.InnerPostContainer h3 img) {
   max-width: 100%;
 }
+
 
 .PostContainer:before {
   content: "";
