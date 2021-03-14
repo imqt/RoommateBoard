@@ -8,13 +8,14 @@
 }
 
 .PostContainer {
-  height: 250px;
+  height: 300px;
   width: 250px;
   background-color: #a9d6e5;
   position: absolute;
-  background: linear-gradient(45deg, transparent 30px, #a9d6e5 20px);
+  background: linear-gradient(45deg, transparent 30px, #a9d6e5 30px);
   filter: drop-shadow(5px -5px 5px rgba(0, 0, 0, 0.2));
-  padding: 17px;
+  padding: 10px;
+  padding-bottom: 50px;
   overflow: hidden;
   border-radius: 2px;
 }
@@ -25,9 +26,10 @@
   width: 100%;
   background-color: transparent;
   position: relative;
-  transform-origin: 0% 0%;
+  /* transform-origin: 0% 0%; */
   overflow: hidden;
   padding: 5px;
+  overflow-wrap: break-word;
 }
 
 .PostContainer:hover{
@@ -40,7 +42,7 @@
   overflow: auto;
 }
 
-.InnerPostContainer img {
+.InnerPostContainer img, .InnerPostContainer p {
   max-width: 100%;
 }
 
@@ -49,8 +51,8 @@
   display: block;
   width: 0px;
   height: 0px;
-  border-left: 15px solid transparent;
-  border-top: 15px solid #89c2d9;
+  border-left: 45px solid transparent;
+  border-top: 45px solid #89c2d9;
   bottom: 0px;
   left: 0px;
   position: absolute;
