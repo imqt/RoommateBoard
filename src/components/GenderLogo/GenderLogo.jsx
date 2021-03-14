@@ -5,9 +5,9 @@ import React, { useState, useEffect } from "react";
 
 
 const getGenderLogo = (gender) => {
-    if (gender == "Male"){
+    if (gender == "male"){
       return male;
-    } else if (gender == "Female") {
+    } else if (gender == "female") {
       return female;
     }
     return nonbinary;

@@ -12,11 +12,11 @@ export default function Post(props) {
 
   return (
     <div id={postData.id} className="PostContainer" style={postStyle}>
-      <h2>
+      <h3>
         {postData.name}
         <GenderLogo gender={postData.gender} />
-      </h2>
-      Pet: {postData.has_pet == 0? "No": "Yes"}
+      </h3>
+      Pets: {postData.pets == 0? "No": "Yes"}
       <p>{postData.content}</p>
       {parser(postData.content || "")}
     </div>
