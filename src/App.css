@@ -61,3 +61,54 @@
 .PostContainer:nth-of-type(1) {
   margin-right: 9%;
 }
+
+.Standard {
+  background-repeat: no-repeat;
+  height: 200px;
+  width: 200px;
+  opacity: 0.95;
+  position: absolute;
+  filter: drop-shadow(5px -5px 5px rgba(0, 0, 0, 0.2));
+}
+
+.CardBoard {
+  background-image: url(./components/img/texture/cardboard-texture-1157848.jpg);
+}
+
+.Curtain {
+  background-image: url(./components/img/texture/curtains-2-1228217.jpg);
+}
+
+.GoldPaper {
+  background-image: url(./components/img/texture/gold-paper-1178652.jpg);
+}
+.GrungeWall {
+  background-image: url(./components/img/texture/grunge-wall-1183561.jpg);
+}
+.IsroP11 {
+  background-image: url(./components/img/texture/istockphoto-1159352213-612x612.jpg);
+}
+.IsroP05 {
+  background-image: url(./components/img/texture/istockphoto-527897414-612x612.jpg);
+}
+.IsroP09 {
+  background-image: url(./components/img/texture/istockphoto-988996416-170x170.jpg);
+}
+.PhotoRetro {
+  background-image: url(./components/img/texture/photo-retro-1175854.jpg);
+}
+.SeaCrystal {
+  background-image: url(./components/img/texture/seasalt-crystal-structure-1198330.jpg);
+}
+.TexturedBeadG {
+  background-image: url(./components/img/texture/textured-beaded-glass-1504247.jpg);
+}
+.Tiles11 {
+  background-image: url(./components/img/texture/tiles-1168941.jpg);
+}
+.Tiles14 {
+  background-image: url(./components/img/texture/tiles-1463578.jpg);
+}
+.CardBoardWhite {
+  background-image: url(./components/img/texture/white-cardboard-texture-hi-res-thumb30.png);
+}

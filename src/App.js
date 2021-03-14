@@ -39,7 +39,7 @@ class App extends Component {
           showModal={this.showPostModal.bind(this)}
           hideModal={this.hideModal.bind(this)}
         />
-
+        <Logo/>
         <AddButton
           onClick={() => this.setState({ selectPostLocationMode: true })}
         ></AddButton>
