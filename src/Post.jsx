@@ -12,7 +12,9 @@ export default function Post(props) {
 
   return (
     <div id={postData.id} className="PostContainer" style={postStyle}>
+      <div className="InnerPostContainer">
         {parser(postData.content || "")}
+      </div>
     </div>
   );
 }
