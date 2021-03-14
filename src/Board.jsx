@@ -87,7 +87,7 @@ export default function Board(props) {
       onClick={onMouseClick}
     >
       {/* Mouse coordinates: {mouseCoordinate.x} {mouseCoordinate.y} */}
-      <Form.Control as="textarea" placeholder="Filter by Tags" rows={1} onChange={onSearchBarChange} style={{width: "300px", position: "absolute", top: "30px", right: "250px"}} ></Form.Control>
+      <Form.Control as="textarea" placeholder="Filter by Tags" rows={1} onChange={onSearchBarChange} style={{width: "180px", position: "absolute", top: "30px", right: "250px"}} ></Form.Control>
 
       {posts.map((post, i) => (
         post.tags && post.tags.includes(tag) && <Post postData={post} />
